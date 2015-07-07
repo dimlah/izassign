@@ -24,10 +24,7 @@ public class DataSource {
 
 
         for(int i = 0; i < sCount; i++) {
-            LayoutItemModel layoutItemModel = new LayoutItemModel();
-            layoutItemModel.setDateTime(new Date());
-            layoutItemModel.setText("Text for item " + i);
-            layoutItemModel.setExpandedText("Expanded text for item " + i);
+            LayoutItemModel layoutItemModel = new LayoutItemModel(new Date(), "Text for item " + i, "Expanded text for item " + i);
             models.add(layoutItemModel);
         }
 

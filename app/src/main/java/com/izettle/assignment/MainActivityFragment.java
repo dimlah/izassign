@@ -15,6 +15,8 @@ import com.izettle.assignment.adapter.LinearGridLayoutAdapter;
 import com.izettle.assignment.adapter.StaggeredGridLayoutAdapter;
 import com.izettle.assignment.event.LayoutChangedEvent;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
 
 
@@ -23,7 +25,9 @@ import de.greenrobot.event.EventBus;
  */
 public class MainActivityFragment extends Fragment {
 
-    private RecyclerView mRecyclerView;
+
+    @Bind(R.id.recycler_view)
+    RecyclerView mRecyclerView;
     private BaseLayoutAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private final static int sSpanCount = 3;
@@ -33,7 +37,12 @@ public class MainActivityFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_main, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
+
+        ButterKnife.bind(this, view);
+        return view;
+
     }
 
     @Override
@@ -51,7 +60,6 @@ public class MainActivityFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
 
         updateLayoutManagerAndAdapter(LayoutChangedEvent.LINEAR);
         mRecyclerView.setLayoutManager(mLayoutManager);

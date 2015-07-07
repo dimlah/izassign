@@ -18,4 +18,8 @@ gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
+<<<<<<< HEAD
+izassign.iml
+=======
 izassignment.iml
+>>>>>>> 592afe136d3a0c08b32789f9cbde94aa21666d0e

@@ -3,22 +3,23 @@ package com.izettle.assignment.model;
 import java.util.Date;
 
 /**
+ * The dummy model for the assignment
+ *
  * Created by dimitris.lachanas on 07/07/15.
  */
-
 public class LayoutItemModel {
-    private static int mNextId = 0;
-    Date mDateTime;
-    String mText;
-    int mId = ++mNextId;
+
+    private Date mDateTime;
+    private String mText;
     private String mExpandedText;
 
-    public static int getNextId() {
-        return mNextId;
+    public LayoutItemModel(Date dateTime, String text, String expandedText) {
+        this(dateTime, text);
+        mExpandedText = expandedText;
     }
-
-    public static void setNextId(int nextId) {
-        LayoutItemModel.mNextId = nextId;
+    public LayoutItemModel(Date dateTime, String text) {
+        mDateTime = dateTime;
+        mText = text;
     }
 
     public Date getDateTime() {
@@ -35,14 +36,6 @@ public class LayoutItemModel {
 
     public void setText(String text) {
         this.mText = text;
-    }
-
-    public int getId() {
-        return mId;
-    }
-
-    public void setId(int id) {
-        this.mId = id;
     }
 
     public String getExpandedText() {

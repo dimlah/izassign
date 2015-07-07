@@ -15,6 +15,9 @@ import com.izettle.assignment.model.LayoutItemModel;
 
 import java.util.List;
 
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 /**
  * This is the {@link RecyclerView.Adapter} and is used for the common initializations and manipulations of the layout
  *
@@ -58,17 +61,16 @@ public class BaseLayoutAdapter extends RecyclerView.Adapter<BaseLayoutAdapter.Li
      * The {@link RecyclerView.ViewHolder} used for our layouts
      */
     public final static class ListItemViewHolder extends RecyclerView.ViewHolder {
-        TextView text;
-        TextView date;
-        TextView expanded;
-        LinearLayout container;
+
+        @Bind(R.id.txt_text) TextView text;
+        @Bind(R.id.txt_date) TextView date;
+        @Bind(R.id.txt_expanded) TextView expanded;
+        @Bind(R.id.container) LinearLayout container;
 
         public ListItemViewHolder(View itemView) {
             super(itemView);
-            container = (LinearLayout) itemView.findViewById(R.id.container);
-            text = (TextView) itemView.findViewById(R.id.txt_text);
-            date = (TextView) itemView.findViewById(R.id.txt_date);
-            expanded = (TextView) itemView.findViewById(R.id.txt_expanded);
+            ButterKnife.bind(this, itemView);
+
         }
     }
 
